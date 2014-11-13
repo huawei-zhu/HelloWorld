@@ -9,9 +9,6 @@ public class MyFirstTestAction {
 
 		System.out.println("hello world##!!");
 
-		System.out.println("hello world##@@");
-		
-		System.out.println("hello world##!!");
 
 	}
 
