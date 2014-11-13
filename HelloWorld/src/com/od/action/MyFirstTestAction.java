@@ -8,10 +8,7 @@ public class MyFirstTestAction {
 
 
 		System.out.println("hello world##!!");
-		
-		/** HELLO world **/
-		
-		System.out.println("hello world");
+
 	}
 
 }
