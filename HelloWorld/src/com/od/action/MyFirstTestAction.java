@@ -11,6 +11,7 @@ import java.util.stream.Stream;
 
 public class MyFirstTestAction {
 
+
 	private int i = 2;
 	
 
@@ -34,5 +35,6 @@ public class MyFirstTestAction {
 		List<MyFirstTestAction> list = new ArrayList<>();
 		list.add(f.apply(2));
 		
+
 	}
 }
