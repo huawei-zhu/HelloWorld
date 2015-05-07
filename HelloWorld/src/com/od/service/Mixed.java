@@ -18,7 +18,7 @@ public class Mixed<T extends Object & Callable> {
 //		Fruit f1 = fruits.get(0);
 //		Apple f2 = fruits.get(0);
 //		GreenApple f3 = fruits.get(0);
-//		
+		
 //		list.add(new Apple());
 //		list.add(new GreenApple());
 //
