@@ -11,7 +11,6 @@ public class URLParser {
 		URL url = new URL(str);
 
 		System.out.println("path:" + url.getPath());
-		System.out.println("path:" + url.getPath());
 		System.out.println("query:" + url.getQuery());
 		System.out.println("file:" + url.getFile());
 
