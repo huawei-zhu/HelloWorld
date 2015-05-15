@@ -12,6 +12,7 @@ public class URLParser {
 
 		System.out.println("path:" + url.getPath());
 		System.out.println("path:" + url.getPath());
+		System.out.println("path:" + url.getPath());
 		System.out.println("query:" + url.getQuery());
 		System.out.println("file:" + url.getFile());
 
