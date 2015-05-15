@@ -16,5 +16,9 @@ public class URLParser {
 		System.out.println("file:" + url.getFile());
 
 	}
+	
+	public void add() {
+		
+	}
 
 }
