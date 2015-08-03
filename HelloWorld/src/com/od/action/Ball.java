@@ -3,7 +3,7 @@ package com.od.action;
 interface Playable {
 	void play();
 
-	int i = 23;
+	int i = 24;
 }
 
 interface Bounceable {
