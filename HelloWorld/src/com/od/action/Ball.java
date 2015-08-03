@@ -5,6 +5,7 @@ interface Playable {
 
 	int i = 212;
 	int in = 24;
+
 }
 
 interface Bounceable {
