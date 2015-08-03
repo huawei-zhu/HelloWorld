@@ -3,8 +3,8 @@ package com.od.action;
 interface Playable {
 	void play();
 
-	int i = 110;
-	int in = 220;
+	int i = 10;
+	int in = 20;
 
 }
 
