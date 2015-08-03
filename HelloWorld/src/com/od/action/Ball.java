@@ -4,8 +4,8 @@ interface Playable {
 	void play();
 
 
-	int i = 112;
-	int in = 224;
+	int i = 12;
+	int in = 24;
 
 
 }
