@@ -12,7 +12,7 @@ public class ConcurrentModifiedExceptionTest {
 
 		
 		List<String> list = new Vector<String>();
-		list.add("111");
+		list.add("222");
 
 		list.add("222");
 		list.add("333");
