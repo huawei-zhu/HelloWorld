@@ -4,7 +4,7 @@ interface Playable {
 	void play();
 
 
-	int i = 10;
+	int i = 130;
 	int in = 120;
 
 }
