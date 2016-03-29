@@ -1,6 +1,8 @@
 package com.od.service;
 
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 
 public class URLParser {
 
@@ -13,7 +15,13 @@ public class URLParser {
 		System.out.println("path:" + url.getPath());
 		System.out.println("path:" + url.getPath());
 		System.out.println("query:" + url.getQuery());
-		System.out.println("file:" + url.getFile());
+		
+		List<String> li = new ArrayList<String>();
+		li.add("a");
+		li.add("23");
+		li.add("sd");
+		li.add("44");
+		System.out.println("file:" + li);
 
 	}
 	
