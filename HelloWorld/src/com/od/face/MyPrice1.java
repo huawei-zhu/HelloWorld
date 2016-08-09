@@ -1,26 +1,35 @@
 package com.od.face;
 
+import java.util.HashMap;
+
 import java.util.Iterator;
+import java.util.Map;
 import java.util.Random;
 import java.util.Set;
 import java.util.TreeSet;
 
-public class MyPrice {
+
+//java -Xms2048m -Xmx4096m com.od.face.MyPrice1
+public class MyPrice1 {
 
 	private static String[] red = { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16" };
 
 	private static String[] blue = { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20",
 			"21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33" };
 
-	private static final int LOOP = 200000;
+	private static final int LOOP = 500 * 10000;
 
-	private static String[][] container = new String[LOOP][15];
+	//private static String[][] container = new String[LOOP][15];
+
+	private static String[][] min5Record = new String[5][8];
 
 	private static Random random = new Random();
 
 	public static void main(String[] args) {
+		String[][] container = new String[LOOP][15];
+		
 		long begin = System.currentTimeMillis();
-		System.out.println("Beginning work...");
+		System.out.println("Beginning work..., the current loop is " + LOOP);
 
 		for (int i = 0; i < LOOP; i++) {
 			container[i][0] = red[random.nextInt(red.length)];
@@ -41,63 +50,49 @@ public class MyPrice {
 		}
 		
 		System.out.println("Initialized End");
-
+		Map<String, Integer> redCache = new HashMap<>();
 		for (int j = 0; j < LOOP; j++) {
 			String key = container[j][0];
-			if (container[j][1] != null) {
-				continue;
+			if (redCache.containsKey(key)) {
+				redCache.put(key, redCache.get(key) + 1);
+			} else {
+				redCache.put(key, 1);
 			}
-			int redCount = 1;
-			int[] redMemory = new int[LOOP];
-			redMemory[j] = 1;// current value
-
-			for (int m = j + 1; m < LOOP; m++) {
-				if (key.equals(container[m][0])) {
-					++redCount;
-					redMemory[m] = 1;
-				}
-			}
-			for (int n = 0; n < LOOP; n++) {
-				if (redMemory[n] == 1) {
-					container[j][1] = redCount + "";
-				}
-			}
-			redMemory = null;
 		}
-
+		System.out.println("calculate Red 50%");
+		for (int j = 0; j < LOOP; j++) {
+			String key = container[j][0];
+			if (redCache.containsKey(key)) {
+				container[j][1] = redCache.get(key) + "";
+			}
+		}
+		redCache = null;
 		System.out.println("Handle Red End");
-
+		////////////////////////////////////////////////
+		
+		Map<String, Integer> blueCache = new HashMap<>();
 		for (int j = 0; j < LOOP; j++) {
 			for (int k = 1; k < 7; k++) {
 				String key = container[j][2 * k];
-				if (container[j][2 * k + 1] != null) {
-					continue;
+				if (blueCache.containsKey(key)) {
+					blueCache.put(key, blueCache.get(key) + 1);
+				} else {
+					blueCache.put(key, 1);
 				}
-
-				int redCount = 1;
-				int[][] redMemory = new int[LOOP][7];
-
-				for (int h = j; h < LOOP; h++) {
-					for (int t = 1; t < 7; t++) {
-						if (key.equals(container[h][2 * t])) {
-							++redCount;
-							redMemory[h][t] = 1;
-						}
-					}
-				}
-
-				for (int n = j; n < LOOP; n++) {
-					for (int r = 1; r < 7; r++) {
-
-						if (redMemory[n][r] == 1) {
-							container[j][2 * r + 1] = redCount + "";
-						}
-					}
-				}
-				redMemory = null;
 			}
 		}
+		System.out.println("calculate blue 50%");
+		for (int j = 0; j < LOOP; j++) {
+			for (int k = 1; k < 7; k++) {
+				String key = container[j][2 * k];
+				if (blueCache.containsKey(key)) {
+					container[j][2 * k + 1] = blueCache.get(key) + "";
+				}
+			}
+		}
+		blueCache = null;
 		System.out.println("Handle Blue End");
+		
 		for (int j = 0; j < LOOP; j++) {
 			int count = 0;
 			for (int k = 0; k < 7; k++) {
@@ -106,14 +101,14 @@ public class MyPrice {
 			container[j][14] = count + "";
 		}
 		System.out.println("Sum End");
-		bubbleSort();
+		bubbleSort(container);
 		System.out.println("Sort End");
 
 		
 		for (int i = 0; i < 5; i++) {
-			System.out.println("[" + i + "] = " + container[i][0] + ":[" + container[i][2] + "," + container[i][4] + "," + container[i][6] + ","
-					+ container[i][8] + "," + container[i][10] + "," + container[i][12] + "], the score is "
-					+ container[i][14]);
+			System.out.println("[" + i + "] = " + min5Record[i][0] + ":[" + min5Record[i][1] + "," + min5Record[i][2] + "," + min5Record[i][3] + ","
+					+ min5Record[i][4] + "," + min5Record[i][5] + "," + min5Record[i][6] + "], the score is "
+					+ min5Record[i][7]);
 		}
 		System.out.println("Print End");
 		long end = System.currentTimeMillis() - begin;
@@ -122,20 +117,43 @@ public class MyPrice {
 		
 	}
 
-	public static void bubbleSort() {
-		double temp;
-		int size = LOOP;
-		for (int i = 0; i < size - 1; i++) {
-			for (int j = i + 1; j < size; j++) {
-				double ii = Double.parseDouble(container[i][14]);
-				double jj = Double.parseDouble(container[j][14]);
-				if (ii > jj) {
-					temp = ii;
-					ii = jj;
-					jj = temp;
+	public static void bubbleSort(String[][] container) {
+		//get min three record
+		for (int i = 0; i < LOOP; i ++) {
+			int val = Integer.parseInt(container[i][14]);
+			for (int j = 0; j < 3; j++) {
+				String minStr = min5Record[j][7];
+				int minVal = Integer.parseInt(minStr == null ? "0" : minStr);
+				if (minStr == null || minVal > val) {
+					min5Record[j][0] = container[i][0];//red
+					min5Record[j][1] = container[i][2];
+					min5Record[j][2] = container[i][4];
+					min5Record[j][3] = container[i][6];
+					min5Record[j][4] = container[i][8];
+					min5Record[j][5] = container[i][10];
+					min5Record[j][6] = container[i][12];
+					min5Record[j][7] = container[i][14];//sum
+					
+					break;
 				}
-				container[i][14] = ii + "";
-				container[j][14] = jj + "";
+			}
+			
+			//get max two record
+			for (int j = 3; j < 5; j++) {
+				String maxStr = min5Record[j][7];
+				int maxVal = Integer.parseInt(maxStr == null ? "0" : maxStr);
+				if (maxVal < val) {
+					min5Record[j][0] = container[i][0];//red
+					min5Record[j][1] = container[i][2];
+					min5Record[j][2] = container[i][4];
+					min5Record[j][3] = container[i][6];
+					min5Record[j][4] = container[i][8];
+					min5Record[j][5] = container[i][10];
+					min5Record[j][6] = container[i][12];
+					min5Record[j][7] = container[i][14];//sum
+					
+					break;
+				}
 			}
 		}
 	}
