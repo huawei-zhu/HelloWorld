@@ -13,7 +13,6 @@ enum Decimal implements Digit {
 		value = ordinal();
 	}
 
-	@Override
 	public int getValue() {
 		return value;
 	}
@@ -28,7 +27,6 @@ enum Hex implements Digit {
 		value = 10 + ordinal();
 	}
 
-	@Override
 	public int getValue() {
 		return value;
 	}

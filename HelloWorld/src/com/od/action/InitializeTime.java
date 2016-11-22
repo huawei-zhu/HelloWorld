@@ -14,7 +14,6 @@ public class InitializeTime {
 		
 		class SuFactory implements Supplier<String>{
 
-			@Override
 			public String get() {
 				System.out.println("11111111");
 				return new String("hello");

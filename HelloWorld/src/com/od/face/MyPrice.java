@@ -18,6 +18,7 @@ public class MyPrice {
 			"21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33" };
 
 	private static final int LOOP = 500 * 10000;
+//	private static final int LOOP = 20;
 
 	//private static String[][] container = new String[LOOP][15];
 
@@ -103,13 +104,13 @@ public class MyPrice {
 		System.out.println("Sum End");
 		bubbleSort(container);
 		System.out.println("Sort End");
-
 		
 		for (int i = 0; i < 5; i++) {
 			System.out.println("[" + i + "] = " + min5Record[i][0] + ":[" + min5Record[i][1] + "," + min5Record[i][2] + "," + min5Record[i][3] + ","
 					+ min5Record[i][4] + "," + min5Record[i][5] + "," + min5Record[i][6] + "], the score is "
 					+ min5Record[i][7]);
 		}
+
 		System.out.println("Print End");
 		long end = System.currentTimeMillis() - begin;
 		System.out.println("consume time [" + end + "] millisecond");
