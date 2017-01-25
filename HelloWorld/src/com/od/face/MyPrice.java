@@ -106,7 +106,7 @@ public class MyPrice {
 		System.out.println("Sort End");
 		
 		for (int i = 0; i < 5; i++) {
-			System.out.println("[" + i + "] = " + min5Record[i][0] + ":[" + min5Record[i][1] + "," + min5Record[i][2] + "," + min5Record[i][3] + ","
+			System.out.println("[" + (i+1) + "] = " + min5Record[i][0] + ":[" + min5Record[i][1] + "," + min5Record[i][2] + "," + min5Record[i][3] + ","
 					+ min5Record[i][4] + "," + min5Record[i][5] + "," + min5Record[i][6] + "], the score is "
 					+ min5Record[i][7]);
 		}

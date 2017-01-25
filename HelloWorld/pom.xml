@@ -6,7 +6,11 @@
 	<version>1.0-SNAPSHOT</version>
 	<packaging>war</packaging>
 	<dependencies>
-
+		<dependency>
+		    <groupId>org.elasticsearch.client</groupId>
+		    <artifactId>transport</artifactId>
+		    <version>5.1.2</version>
+		</dependency>
 		<dependency>
 			<artifactId>GlobalBase</artifactId>
 			<groupId>com.officedepot.iodcore</groupId>
@@ -17,6 +21,16 @@
 			<artifactId>log4j</artifactId>
 			<version>1.2.17</version>
 		</dependency>
+		<dependency>
+		    <groupId>org.apache.logging.log4j</groupId>
+		    <artifactId>log4j-api</artifactId>
+		    <version>2.7</version>
+		</dependency>
+		<dependency>
+		    <groupId>org.apache.logging.log4j</groupId>
+		    <artifactId>log4j-core</artifactId>
+		    <version>2.7</version>
+		</dependency>		
 		<dependency>
 			<groupId>io.reactivex</groupId>
 			<artifactId>rxjava</artifactId>
