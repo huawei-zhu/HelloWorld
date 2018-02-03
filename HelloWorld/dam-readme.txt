@@ -4,4 +4,6 @@ put the mysql-connector jar into the APPENGINE_HOME/lib/impl
 
 error: configure google cloud sql
 solution: 
+
 I will move to master
+
