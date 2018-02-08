@@ -6,3 +6,8 @@ this is a test-master!
 this is a test-dev
 
 
+<<<<<<< HEAD
+=======
+this is a test-dev-1!
+
+>>>>>>> branch 'dev' of https://github.com/huawei-zhu/HelloWorld.git
