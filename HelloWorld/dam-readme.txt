@@ -6,6 +6,9 @@ error: configure google cloud sql
 solution: 
 
 
+<<<<<<< Upstream, based on master
 this is a test-master!
+=======
+>>>>>>> 22740b7 dev submit
 this is a test-dev!
 
