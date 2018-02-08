@@ -6,3 +6,9 @@ this is a test-master!
 this is a test-dev!
 
 
+<<<<<<< HEAD
+=======
+this is a test-master!
+this is a test-master!
+
+>>>>>>> 099218e... master 444
