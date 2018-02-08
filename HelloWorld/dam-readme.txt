@@ -6,9 +6,5 @@ error: configure google cloud sql
 solution: 
 
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 4b2bec2... update-dev
 this is a test-dev!
 
