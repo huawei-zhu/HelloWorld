@@ -2,6 +2,14 @@ http://localhost:8888/_ah/admin
 
 put the mysql-connector jar into the APPENGINE_HOME/lib/impl
 
+<<<<<<< Upstream, based on master
 this is a test-master!
 this is a test-dev
+=======
+error: configure google cloud sql
+solution: 
+
+
+this is a test-dev!
+>>>>>>> 37a5a0e dev submit
 
