@@ -4,4 +4,4 @@ put the mysql-connector jar into the APPENGINE_HOME/lib/impl
 
 
 
-this is a test-dev 1!
+this is a test-dev 2!
